@@ -40,13 +40,20 @@ public class WordSearch
      */
 
      int matches = 0;
-
+     
+    //printtheboard
+     for( int r = 0; r < rows; r++ )
+        for( int c = 0; c < columns; c++ ){
+            System.out.print(theBoard[r][c]);
+            if (c==columns-1) System.out.println(" ");}
+     
      for( int r = 0; r < rows; r++ )
         for( int c = 0; c < columns; c++ )
             for( int rd = -1; rd <= 1; rd++ )
                 for( int cd = -1; cd <= 1; cd++ )
                     if( rd != 0 || cd != 0 )
                         matches += solveDirection( r, c, rd, cd );
+     
 
      return matches;
   }
@@ -205,6 +212,7 @@ private void readPuzzle( ) throws IOException
      int r = 0;
      for( String theLine : puzzleLines )
      theBoard[ r++ ] = theLine.toCharArray( );
+     
 }
 
 
